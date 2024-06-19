@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
-        <div className="container mx-auto mt-8">
+        <div className="container mx-auto mt-8 bg-[rgba(244, 233, 219, 0.332)]">
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <Link to='/' className="text-4xl font-bold">Homeland</Link>

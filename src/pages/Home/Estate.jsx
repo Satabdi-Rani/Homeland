@@ -9,7 +9,7 @@ const Estate = ({ estateData }) => {
     const { image, estate_title, segment_name,facilities, description, price, status, area, location } = estateData;
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-xl ">
                 <figure className="px-10 pt-10">
                     <img src={image} alt="Shoes" className="rounded-xl" />
                 </figure>
@@ -38,7 +38,11 @@ const Estate = ({ estateData }) => {
                         <li className='text-yellow-900 text-2xl font-bold mt-1'><CiHeart /></li>
                     </ul>
                     <div className="card-actions">
-                        <button className="btn bg-yellow-400 text-lg text-[#262626] hover:bg-[#160d0dc0] shadow-xl hover:text-yellow-400 px-6 border-none rounded-xl py-2 mt-4">View Property</button>
+                        <button className="btn bg-yellow-400 text-lg text-[#262626] hover:bg-[#160d0dc0] shadow-xl hover:text-yellow-400 px-6 border-none rounded-xl py-2 mt-4">View Property
+                            {
+
+                            }
+                        </button>
                     </div>
                 </div>
             </div>
