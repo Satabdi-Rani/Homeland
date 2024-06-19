@@ -1,3 +1,4 @@
+import Estates from './Estates';
 import Header from './Header';
 import Slider from './Slider';
 
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
             <Header></Header>
             <Slider></Slider>
+            <Estates></Estates>
         </div>
     );
 };
