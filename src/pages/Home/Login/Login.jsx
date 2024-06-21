@@ -1,10 +1,47 @@
 import { FaGithub, FaRegEye } from "react-icons/fa6";
-import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
+import { Link } from "react-router-dom";
+import { getAuth, signInWithPopup } from "firebase/auth";
+import app from "../../../firebase/firebase.config";
+import { GoogleAuthProvider } from "firebase/auth/web-extension";
 
 const Login = () => {
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const handleGoogleLogin = () => {
+        signInWithPopup(auth, provider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => {
+            console.log('error', error.message);
+        })
+    }
+
+    const handleLogin = e => {
+        e.preventDefault();
+        console.log(e.currentTarget);
+        const form = new FormData(e.currentTarget);
+        console.log(form);
+        const email = form.get('email');
+        const password = form.get('password');
+        console.log(email, password)
+    }
+
     return (
         <div>
+            <HelmetProvider>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Login - Homeland</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+            </HelmetProvider>
+            
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
@@ -13,12 +50,12 @@ const Login = () => {
                     </div>
 
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <Link>
+                        <button onClick={handleGoogleLogin}>
                             <div className="border rounded-full m-6 p-4 flex flex-row justify-center gap-2">
                                 <p className=" mt-1 "><FaGoogle /></p>
                                 <h4 className="text-md font-bold">Continue with Google</h4>
                             </div>
-                        </Link>
+                            </button>
 
                         <Link>
                             <div className="border rounded-full mx-6 p-4 flex flex-row justify-center gap-2">
@@ -29,7 +66,7 @@ const Login = () => {
 
                         <div className="divider mx-7 mt-6">Or</div>
 
-                        <form className="card-body">
+                        <form onSubmit={handleLogin}  className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -47,11 +84,12 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control">
-                                <Link>
+                                
                                     <button className="btn w-full hover:bg-yellow-400 text-lg hover:text-[#262626] bg-[#160d0dc0] shadow-xl text-yellow-400 px-6 border-none rounded-xl py-2 ">Login</button>
-                                </Link>
+                                
                             </div>
                         </form>
+
                         <div className="text-center mb-8">
                             <h4 className="text-md">Do not have an account? Please <span className="text-yellow-700 font-extrabold">
                                 <Link to='/register'>Register</Link>
