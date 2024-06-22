@@ -14,7 +14,7 @@ const Slider = () => {
                     spaceBetween={50}
                     slidesPerView={1}
                     navigation
-                    autoplay
+                    // autoplay
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
                 >
@@ -25,7 +25,7 @@ const Slider = () => {
                     <SwiperSlide><img className='h-[300px] w-full sm:h-[400px] md:h-[400px] lg:h-screen lg:w-full bg-cover bg-blend-overlay brightness-75' src="https://i.ibb.co/0VY308s/slider-image-4.jpg" alt="" /></SwiperSlide>
                 </Swiper>
             </div>
-            <div className='text-left z-10 absolute bg-[#160d0d9a] py-8 sm:py-12 xl:py-28 px-8 sm:px-12 xl:px-24 top-[200px] sm:top-[215px] lg:top-[100px] xl:top-[400px] left-[100px] sm:left-[150px] lg:left-[20px] xl:left-[500px] border-none rounded-lg  flex flex-col'>
+            <div className='text-left z-10 absolute bg-[#160d0d9a] py-8 sm:py-12 xl:py-28 px-8 sm:px-12 xl:px-24 top-[200px] sm:top-[215px] lg:top-[400px] left-[100px] sm:left-[150px] lg:left-[500px] border-none rounded-lg  flex flex-col'>
                 <h1 className='text-xl sm:text-3xl md:text-5xl lg:text-7xl text-white font-bold'>Oxome Premium Flats</h1>
                 <h2 className='text-md sm:text-lg md:text-2xl lg:text-4xl text-white mt-4 sm:mt-4 lg:mt-8 font-bold'>Provide a decent level of comfort</h2>
                 {/* <button className='px-4 py-2 bg-transparent text-white border rounded-lg text-lg  w-36'>Contact Us</button> */}
