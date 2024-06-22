@@ -4,6 +4,7 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
+import 'animate.css';
 
 const Slider = () => {
     return (
@@ -26,7 +27,7 @@ const Slider = () => {
                 </Swiper>
             </div>
             <div className='text-left z-10 absolute bg-[#160d0d9a] py-8 sm:py-12 xl:py-28 px-8 sm:px-12 xl:px-24 top-[200px] sm:top-[215px] lg:top-[400px] left-[100px] sm:left-[150px] lg:left-[500px] border-none rounded-lg  flex flex-col'>
-                <h1 className='text-xl sm:text-3xl md:text-5xl lg:text-7xl text-white font-bold'>Oxome Premium Flats</h1>
+                <h1 className='text-xl sm:text-3xl md:text-5xl lg:text-7xl text-white font-bold animate__animated animate__shakeY'>Oxome Premium Flats</h1>
                 <h2 className='text-md sm:text-lg md:text-2xl lg:text-4xl text-white mt-4 sm:mt-4 lg:mt-8 font-bold'>Provide a decent level of comfort</h2>
                 {/* <button className='px-4 py-2 bg-transparent text-white border rounded-lg text-lg  w-36'>Contact Us</button> */}
                 <button className='btn mt-4 sm:mt-5 lg:mt-8 w-28 sm:w-32 lg:w-48 hover:bg-yellow-400 text-md  sm:text-md lg:text-xl hover:text-[#262626] bg-transparent shadow-xl text-yellow-400 px-4 sm:px-5 lg:px-6  sm:py-2 border-[#FACC15] rounded-xl'>Contact Us</button>

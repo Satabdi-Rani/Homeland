@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet-async';
 import Estates from './Estates';
 import Slider from './Slider';
 import { HelmetProvider } from 'react-helmet-async';
+import FamilySection from './FamilySection';
+import Counting from './Counting';
 
 const Home = () => {
     return (
@@ -14,7 +16,9 @@ const Home = () => {
             </Helmet>
             </HelmetProvider>
             <Slider></Slider>
+            <FamilySection></FamilySection>
             <Estates></Estates>
+            <Counting></Counting>
         </div>
     );
 };
