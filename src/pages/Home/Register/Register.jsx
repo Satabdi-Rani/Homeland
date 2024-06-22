@@ -36,10 +36,10 @@ const Register = () => {
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
             </HelmetProvider>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col ">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold mb-10">Register Here!</h1>
+            <div className="hero min-h-screen bg-blend-overlay bg-[url('https://i.ibb.co/Y7PwJNX/3d-house-model-with-modern-architecture.jpg')]">
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <div className="text-center ml-4 lg:text-left">
+                        <h1 className="text-5xl font-bold mb-10 text-white">Register Here!</h1>
                     </div>
 
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
