@@ -7,6 +7,7 @@ import Register from "../pages/Home/Register/Register";
 import SingleEstateDetails from "../pages/Home/SingleEstateDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UpdateProfile from "../pages/Home/UpdateProfile";
+import Gallery from "../pages/Gallery";
 
 
 
@@ -30,12 +31,16 @@ const router =  createBrowserRouter([
         {
             path: '/estate/:id',
             // loader : ({params}) => fetch(`http://localhost:5173/estate/${params.id}`),
-            element: <SingleEstateDetails></SingleEstateDetails>,
+            element: <PrivateRoute><SingleEstateDetails></SingleEstateDetails></PrivateRoute> ,
 
         },
         {
             path: '/updateProfile',
             element: <UpdateProfile></UpdateProfile> 
+        },
+        {
+            path: '/gallery',
+            element: <PrivateRoute><Gallery></Gallery></PrivateRoute> 
         },
         ],
     },

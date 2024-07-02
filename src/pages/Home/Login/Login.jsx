@@ -2,7 +2,7 @@ import { FaGithub, FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { FaGoogle } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import { HelmetProvider } from "react-helmet-async";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from 'sweetalert2'
@@ -12,6 +12,7 @@ const Login = () => {
     const { signInUser, googleLogin, githubLogin } = useContext(AuthContext);
     const [passvisible, setPassVisible] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogin = e => {
         e.preventDefault();
@@ -34,7 +35,7 @@ const Login = () => {
                         icon: 'success',
                         confirmButtonText: 'Okay'
                     }).then(() => {
-                        navigate('/'); // Redirect to login page
+                        navigate(location?.state ? location.state : '/'); // Redirect to login page
                     })
                 )
             })
@@ -88,7 +89,7 @@ const Login = () => {
 
 
     return (
-        <div className="">
+        <div className="mt-10  ">
             <HelmetProvider>
                 <Helmet>
                     <meta charSet="utf-8" />
@@ -98,11 +99,11 @@ const Login = () => {
             </HelmetProvider>
 
 
-            <div className="hero min-h-screen bg-blend-overlay bg-[url('https://i.ibb.co/pLFQxgz/view-luxurious-hotel-interior-space.jpg')]  ">
+            <div className="py-10  hero min-h-screen bg-blend-overlay bg-[url('https://i.ibb.co/pLFQxgz/view-luxurious-hotel-interior-space.jpg')]  ">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center ml-8 lg:text-left">
+                    <div className="text-center ml-4 lg:text-left">
                         <h1 className="text-5xl font-bold text-white">Login now!</h1>
-                        <p className="py-6 text-white">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <p className="py-6 text-white">Please Login here</p>
                     </div>
 
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

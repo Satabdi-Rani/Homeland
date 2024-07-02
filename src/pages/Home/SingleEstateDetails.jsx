@@ -35,16 +35,17 @@ const SingleEstateDetails = () => {
 
     return (
         <div className=" container mx-auto rounded-xl mt-16 mb-20">
-            <div className=" bg-base-100  grid grid-cols-2 py-10 px-10">
+            <div className=" bg-base-100  grid grid-cols-1 sm:grid-cols-2 py-10 px-10">
                 <div>
                     <img className="w-full h-[500px] rounded-xl"
                         src={image}
                         alt="image" />
                 </div>
-                <div className="">
+
+                <div className="mt-10 sm:mt-0">
                     <div>
 
-                        <div className="card-body border rounded-xl ml-20">
+                        <div className="card-body border rounded-xl sm:ml-20">
                             <h2 className="card-title text-4xl font-bold">{estate_title}</h2>
                             <ul className='flex flex-row gap-1 mt-3 '>
                                 <li className='text-yellow-300 text-2xl  font-bold'><IoLocationSharp /></li>
