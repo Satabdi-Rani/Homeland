@@ -41,7 +41,7 @@ const Estate = ({ estateData }) => {
                     <div className="card-actions">
                         <Link to={`/estate/${id}`}>
                         <button className="btn bg-yellow-400 text-lg text-[#262626] hover:bg-[#160d0dc0] shadow-xl
-                         hover:text-yellow-400 px-6 border-none rounded-xl py-2 mt-4">View Propert</button>
+                         hover:text-yellow-400 px-6 border-none rounded-xl py-2 mt-4">View Property</button>
                         </Link>
                     </div>
                 </div>

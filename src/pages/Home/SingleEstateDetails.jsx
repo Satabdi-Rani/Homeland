@@ -1,17 +1,31 @@
-import { useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import {  useParams } from "react-router-dom";
 
 const SingleEstateDetails = () => {
     const {id} = useParams();
 
-    const singleData = useLoaderData();
+    // const singleData = useLoaderData();
     // console.log(user)
     // const {id, image} = user;
-    const [singleEstate, setSingleEstate] = useState(singleData);
-    console.log(singleEstate)
+    const [singleEstate, setSingleEstate] = useState([]);
+
+    useEffect(()=> {
+        fetch('./luxuryland.json')
+        .then( res => res.json())
+        .then((data) => {
+            const foundState = data.find((item) => item.id === parseInt(id))
+            setSingleEstate(foundState)
+        })
+        .catch((error) => console.error("Error fetching land details:", error));
+    }, [id])
+    
+    
+    const {price} = singleEstate;
+    console.log(price)
+    // console.log(singleEstate)
     return (
         <div>
-            <h1>{singleEstate.price}</h1>
+            <h1>{price}</h1>
     
         </div>
     );

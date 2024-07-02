@@ -29,7 +29,7 @@ const router =  createBrowserRouter([
         },
         {
             path: '/estate/:id',
-            loader : ({params}) => fetch(`http://localhost:5173/estate/${params.id}`),
+            // loader : ({params}) => fetch(`http://localhost:5173/estate/${params.id}`),
             element: <SingleEstateDetails></SingleEstateDetails>,
 
         },
