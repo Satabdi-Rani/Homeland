@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+// import { Tooltip } from 'react-tooltip'
 
 const Header = () => {
-    const {registerUser, logOut} = useContext(AuthContext);
-    
+    const { user, updateUser, logOut } = useContext(AuthContext);
+    console.log(updateUser)
+
     const handleLogOut = () => {
         logOut()
         .then(() => {console.log('user logged out successfully')})
@@ -13,8 +15,8 @@ const Header = () => {
 
 
     return (
-        <div className="container mx-auto lg:px-10 xl:px-0 mt-8 bg-[rgba(244, 233, 219, 0.332)]">
-            <div className="navbar bg-base-100">
+        <div className="container mx-auto  mt-8 bg-[rgba(244, 233, 219, 0.332)]">
+            <div className="navbar bg-base-100 lg:px-8">
                 <div className="navbar-start">
                     <Link to='/' className="text-4xl font-bold">Homeland</Link>
                 </div>
@@ -28,6 +30,7 @@ const Header = () => {
                         <Link to=''>About</Link>
                         <Link to=''>Facilities</Link>
                         <Link to=''>Contact</Link>
+                        <Link to='/updateProfile'>Update Profile</Link>
                     </ul>
                 </div>
                 <ul className="md:flex md:flex-row gap-4 text-lg font-semibold hidden ">
@@ -35,23 +38,32 @@ const Header = () => {
                     <Link to=''>About</Link>
                     <Link to=''>Facilities</Link>
                     <Link to=''>Contact</Link>
+                    <Link to='/updateProfile'>Profile</Link>
                 </ul>
 
                 <div className="navbar-end flex flex-row gap-5 ">
                     {
-                        registerUser ? <div><span>{registerUser.email}</span> <Link to=''>
-                        <button onClick={handleLogOut} className="btn hover:bg-yellow-400 text-lg hover:text-[#262626] bg-[#160d0dc0] shadow-xl text-yellow-400 px-6 border-none rounded-xl py-2 mt-4">LogOut</button>
-                    </Link> </div> : <div> <Link to='/login'>
-                        <button className="btn mr-4 hover:bg-yellow-400 text-lg hover:text-[#262626] bg-[#160d0dc0] shadow-xl text-yellow-400 px-6 border-none rounded-xl py-2 mt-4">Login</button>
-                    </Link>
-                     
-                    <Link to='/register'>
-                        <button className="btn hover:bg-yellow-400 text-lg hover:text-[#262626] bg-[#160d0dc0] shadow-xl text-yellow-400 px-6 border-none rounded-xl py-2 mt-4">Register</button>
-                    </Link>
+                        user ? <div className="flex flex-row">
+                            <div className="tooltip uppercase" data-tip={user.displayName}>
+                                {/* <button className="btn"> */}
+                                    <img className="w-10 h-10 border rounded-full" src={user.photoURL} alt="" />
+                                {/* </button> */}
+                            </div>
+                            <Link to=''>
+                                <button onClick={handleLogOut} className="btn hover:bg-yellow-400 text-lg hover:text-[#262626] bg-[#160d0dc0] shadow-xl text-yellow-400 px-6 border-none rounded-xl py-2 mt-4">LogOut</button>
+                            </Link> </div> 
+                            : 
+                            <div> <Link to='/login'>
+                                <button className="btn mr-4 hover:bg-yellow-400 text-lg hover:text-[#262626] bg-[#160d0dc0] shadow-xl text-yellow-400 px-6 border-none rounded-xl py-2 mt-4">Login</button>
+                            </Link>
 
-                    </div>
+                            <Link to='/register'>
+                                <button className="btn hover:bg-yellow-400 text-lg hover:text-[#262626] bg-[#160d0dc0] shadow-xl text-yellow-400 px-6 border-none rounded-xl py-2 mt-4">Register</button>
+                            </Link>
+
+                        </div>
                     }
-                
+
                 </div>
             </div>
         </div>

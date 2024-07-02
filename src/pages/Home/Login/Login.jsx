@@ -1,63 +1,17 @@
-import { FaGithub, FaRegEye } from "react-icons/fa6";
+import { FaGithub, FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { FaGoogle } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import { HelmetProvider } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
-// import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
-// import app from "../../../firebase/firebase.config";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from 'sweetalert2'
 
 const Login = () => {
-    const { signInUser, signInWithGoogle } = useContext(AuthContext);
+    const [success, setSuccess] = useState('');
+    const { signInUser, googleLogin, githubLogin } = useContext(AuthContext);
+    const [passvisible, setPassVisible] = useState(false);
     const navigate = useNavigate();
-    // const [googleSignInUser, setGoogleSignInUser] = useState([]);
-    // const [githubSignInUser, setGithubSignInUser] = useState([]);
-
-    // const auth = getAuth(app);
-    // const provider = new GoogleAuthProvider();
-    // const githubProvider = new GithubAuthProvider();
-
-
-
-    // Login with Github
-    // const handleGithubLogin = () => {
-    //     signInWithPopup(auth, githubProvider)
-    //         .then(result => {
-    //             const user = result.user;
-    //             console.log(user)
-    //             setGithubSignInUser(user)
-    //         })
-    //         .catch(error => {
-    //             console.log(error)
-    //         })
-    // }
-
-    // Login with Google
-    // const handleGoogleLogin = () => {
-    //     signInWithPopup(auth, provider)
-    //         .then(result => {
-    //             const googleUser = result.user;
-    //             console.log(googleUser);
-    //             setGoogleSignInUser(googleUser)
-
-    //         })
-    //         .catch(error => {
-    //             console.log('error', error.message);
-    //         })
-    // }
-
-    // Logout with google
-    // const handleGoogleLogout = () => {
-    //     signOut(auth)
-    //         .then(result => {
-    //             console.log(result)
-    //             setGoogleSignInUser(null)
-    //         })
-    //         .catch(error => {
-    //             console.log(error)
-    //         })
-    // }
 
     const handleLogin = e => {
         e.preventDefault();
@@ -73,23 +27,65 @@ const Login = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result.user)
-                navigate('/');
+                setSuccess(
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'You successfully logged in',
+                        icon: 'success',
+                        confirmButtonText: 'Okay'
+                    }).then(() => {
+                        navigate('/'); // Redirect to login page
+                    })
+                )
             })
             .catch(error => {
                 console.log(error)
             })
     }
 
-    const handleGoogleSignIn = () => {
-        signInWithGoogle()
-        .then(result => {
-            console.log(result.user)
-            navigate('/');
-        })
-        .catch(error => {
-            console.log(error)
-        })
+
+    // Google Login
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                console.log(result.user)
+                setSuccess(
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'You successfully logged in',
+                        icon: 'success',
+                        confirmButtonText: 'Okay'
+                    }).then(() => {
+                        navigate('/'); // Redirect to login page
+                    })
+                )
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
+
+    // Github Login
+    const handleGithubLogin = () => {
+        githubLogin()
+            .then(result => {
+                console.log(result.user)
+                setSuccess(
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'You successfully logged in',
+                        icon: 'success',
+                        confirmButtonText: 'Okay'
+                    }).then(() => {
+                        navigate('/'); // Redirect to login page
+                    })
+                )
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
 
     return (
         <div className="">
@@ -100,18 +96,7 @@ const Login = () => {
                     <link rel="canonical" href="http://mysite.com/example" />
                 </Helmet>
             </HelmetProvider>
-            {/* {
-                githubSignInUser ? githubSignInUser.length : 'blili'
-            }
-            {
-                googleSignInUser &&
-                <div>
-                    {googleSignInUser.displayName}
-                    <div className="form-control">
-                        <button onClick={handleGoogleLogout} className="btn w-28 hover:bg-yellow-400 text-lg hover:text-[#262626] bg-[#160d0dc0] shadow-xl text-yellow-400 px-6 border-none rounded-xl py-2 ">LogOut</button>
-                    </div>
-                </div>
-            } */}
+
 
             <div className="hero min-h-screen bg-blend-overlay bg-[url('https://i.ibb.co/pLFQxgz/view-luxurious-hotel-interior-space.jpg')]  ">
                 <div className="hero-content flex-col lg:flex-row-reverse">
@@ -121,14 +106,14 @@ const Login = () => {
                     </div>
 
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <button onClick={handleGoogleSignIn}>
+                        <button onClick={handleGoogleLogin}>
                             <div className="border rounded-full m-6 p-4 flex flex-row justify-center gap-2">
                                 <p className=" mt-1 "><FaGoogle /></p>
                                 <h4 className="text-md font-bold">Continue with Google</h4>
                             </div>
                         </button>
 
-                        <button >
+                        <button onClick={handleGithubLogin}>
                             <div className="border rounded-full mx-6 p-4 flex flex-row justify-center gap-2">
                                 <p className=" mt-1 "> <FaGithub></FaGithub></p>
                                 <h4 className="text-md font-bold">Continue with Github</h4>
@@ -148,8 +133,13 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="Password" name="password" className="input input-bordered" required />
-                                <FaRegEye className="relative bottom-8 left-3/4 ml-11 text-lg" />
+                                <input type={ passvisible ? "text" : "password"}
+                                 placeholder="Password" name="password" className="input input-bordered" required />
+                                 <span onClick={()=> setPassVisible(!passvisible)}>
+                                 {
+                                    passvisible ?  <FaRegEyeSlash className="relative bottom-8 left-3/4 ml-11 text-lg"></FaRegEyeSlash> : <FaRegEye className="relative bottom-8 left-3/4 ml-11 text-lg" />
+                                }
+                                    </span>                                
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>

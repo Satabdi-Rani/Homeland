@@ -4,6 +4,10 @@ import Estate from "./Estate";
 const Estates = () => {
    const [estatesData, setEstatesData] = useState([]);
 
+//    const handleSingleEstate = (clickedId) => {
+//       console.log('button clicked')
+//    }
+
    useEffect(()=> {
     fetch('/public/luxuryland.json')
     .then(res => res.json())
@@ -17,7 +21,8 @@ const Estates = () => {
                 <h1 className="text-3xl lg:text-5xl font-bold mt-2">Luxurious Properties</h1>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20 ">
                      {
-                        estatesData.map(estateData => <Estate key={estateData.id} estateData={estateData}></Estate>)
+                        estatesData.map(estateData => <Estate 
+                            key={estateData.id} estateData={estateData}></Estate>)
                      }
                 </div>
             </div>

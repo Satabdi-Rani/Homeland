@@ -50,7 +50,7 @@
     },
     {
       "id": 5,
-      "image": "https://example.com/images/villa1.jpg",
+      "image": "https://i.ibb.co/L6Y8H17/estate-1.jpg",
       "estate_title": "Modern Luxury Villa",
       "segment_name": "Villa",
       "description": "A contemporary villa with state-of-the-art design and luxurious finishes.",
@@ -62,7 +62,7 @@
     },
     {
       "id": 6,
-      "image": "https://example.com/images/mansion1.jpg",
+      "image": "https://i.ibb.co/xgF3ftv/estate-2.jpg",
       "estate_title": "Historic Luxury Mansion",
       "segment_name": "Mansion",
       "description": "A grand mansion with historic charm and modern luxury amenities.",
@@ -74,7 +74,7 @@
     },
     {
       "id": 7,
-      "image": "https://example.com/images/penthouse2.jpg",
+      "image": "https://i.ibb.co/GvsFKZv/estate-3.jpg",
       "estate_title": "Skyline View Penthouse",
       "segment_name": "Penthouse",
       "description": "A luxurious penthouse with stunning skyline views and high-end features.",
@@ -86,7 +86,7 @@
     },
     {
       "id": 8,
-      "image": "https://example.com/images/beachfront2.jpg",
+      "image": "https://i.ibb.co/59HL8fc/estate-4.jpg",
       "estate_title": "Oceanfront Luxury Estate",
       "segment_name": "Beachfront",
       "description": "A magnificent oceanfront estate with unparalleled views and private beach access.",
@@ -98,7 +98,7 @@
     },
     {
       "id": 9,
-      "image": "https://example.com/images/villa2.jpg",
+      "image": "https://i.ibb.co/L6Y8H17/estate-1.jpg",
       "estate_title": "Mediterranean Style Villa",
       "segment_name": "Villa",
       "description": "A beautiful Mediterranean style villa with exquisite architecture and lush gardens.",

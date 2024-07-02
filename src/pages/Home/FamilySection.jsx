@@ -1,9 +1,24 @@
 import 'animate.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
+
+
+
 const FamilySection = () => {
+
+    useEffect(() => {
+        AOS.init({
+          disable: "phone",
+          duration: 700,
+          easing: "ease-out-cubic",
+        });
+      }, []);
+
     return (
         <div  className="mb-32">
             <div className="grid grid-col-1 sm:grid-cols-2 gap-10 container mx-auto mt-24 sm:mt-48">
-                <div className="mx-12 sm:mx-0">
+                <div className="mx-12 sm:mx-0 lg:ml-12" data-aos="zoom-y-out">
                     <img className="w-[400px] sm:w-[500px] h-[500px] sm:h-[700px] mb-0" src="https://i.ibb.co/vvxXspn/blue-yellow-geomtric-cupboards.jpg" alt="" />
                     <img className="w-[400px] sm:w-[500px] h-[500px] sm:h-[700px] relative 
                     bottom-[530px] sm:bottom-[780px] left-[30px]  sm:left-[70px] mb-0" src="https://i.ibb.co/C66DnMJ/family-portrait-sofa.jpg" alt="" />

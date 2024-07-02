@@ -14,8 +14,9 @@ Dynamic Content: Dynamic title and content rendering for each page, with a prote
 User Profile Management: Users can view and update their profile information (name and photoURL) securely using Firebase's updateProfile() method.
 
 NPM Packages Used for Challenge Tasks
-Swiper: For implementing a responsive and interactive image slider.
-AOS (Animate on Scroll): For adding smooth animations on scroll, enhancing the visual appeal.
+1. Swiper: For implementing a responsive and interactive image slider.
+2. AOS (Animate on Scroll): For adding smooth animations on scroll, enhancing the visual appeal.
+3. Animate.css : For animating texts with animations
 
 # React + Vite
 

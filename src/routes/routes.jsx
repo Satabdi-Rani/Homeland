@@ -6,6 +6,7 @@ import Login from "../pages/Home/Login/Login";
 import Register from "../pages/Home/Register/Register";
 import SingleEstateDetails from "../pages/Home/SingleEstateDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UpdateProfile from "../pages/Home/UpdateProfile";
 
 
 
@@ -27,8 +28,14 @@ const router =  createBrowserRouter([
             element: <Register></Register>
         },
         {
-            path: '/estate',
-            element: <PrivateRoute><SingleEstateDetails></SingleEstateDetails></PrivateRoute>
+            path: '/estate/:id',
+            loader : ({params}) => fetch(`http://localhost:5173/estate/${params.id}`),
+            element: <SingleEstateDetails></SingleEstateDetails>,
+
+        },
+        {
+            path: '/updateProfile',
+            element: <PrivateRoute><UpdateProfile></UpdateProfile> </PrivateRoute>
         },
         ],
     },
