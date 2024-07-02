@@ -18,7 +18,7 @@
       "segment_name": "Beachfront",
       "description": "A serene beachfront villa with direct access to the ocean and a private beach.",
       "price": 8000000,
-      "status": "sale",
+      "status": "rent",
       "area": 5000,
       "location": "Malibu, CA",
       "facilities": ["living room", "swimming pool", "kitchen"]
@@ -30,7 +30,7 @@
       "segment_name": "Resort",
       "description": "An exclusive resort offering luxury accommodation and world-class amenities.",
       "price": 15000000,
-      "status": "sale",
+      "status": "rent",
       "area": 10000,
       "location": "Bahamas",
       "facilities": ["living room", "swimming pool", "kitchen"]
@@ -55,7 +55,7 @@
       "segment_name": "Villa",
       "description": "A contemporary villa with state-of-the-art design and luxurious finishes.",
       "price": 6000000,
-      "status": "sale",
+      "status": "rent",
       "area": 4000,
       "location": "Beverly Hills, CA",
       "facilities": ["living room", "swimming pool", "kitchen"]
@@ -79,7 +79,7 @@
       "segment_name": "Penthouse",
       "description": "A luxurious penthouse with stunning skyline views and high-end features.",
       "price": 5500000,
-      "status": "sale",
+      "status": "rent",
       "area": 3200,
       "location": "Chicago, IL",
       "facilities": ["living room", "swimming pool", "kitchen"]
@@ -103,7 +103,7 @@
       "segment_name": "Villa",
       "description": "A beautiful Mediterranean style villa with exquisite architecture and lush gardens.",
       "price": 7000000,
-      "status": "sale",
+      "status": "rent",
       "area": 4500,
       "location": "Sardinia, Italy",
       "facilities": ["living room", "swimming pool", "kitchen"]

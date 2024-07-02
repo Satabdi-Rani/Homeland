@@ -4,13 +4,13 @@ import { AuthContext } from "../../providers/AuthProvider";
 // import { Tooltip } from 'react-tooltip'
 
 const Header = () => {
-    const { user, updateUser, logOut } = useContext(AuthContext);
-    console.log(updateUser)
+    const { user, logOut } = useContext(AuthContext);
+    // console.log(updateUser)
 
     const handleLogOut = () => {
         logOut()
-        .then(() => {console.log('user logged out successfully')})
-        .catch(error => console.log(error))
+            .then(() => { console.log('user logged out successfully') })
+            .catch(error => console.log(error))
     }
 
 
@@ -44,24 +44,22 @@ const Header = () => {
                 <div className="navbar-end flex flex-row gap-5 ">
                     {
                         user ? <div className="flex flex-row">
-                            <div className="tooltip uppercase" data-tip={user.displayName}>
-                                {/* <button className="btn"> */}
-                                    <img className="w-10 h-10 border rounded-full" src={user.photoURL} alt="" />
-                                {/* </button> */}
+                            <div className="tooltip uppercase flex items-center mr-4 " data-tip={user.displayName}>
+                                <img className="w-10 h-10 border rounded-full" src={user.photoURL} alt="" />
                             </div>
                             <Link to=''>
-                                <button onClick={handleLogOut} className="btn hover:bg-yellow-400 text-lg hover:text-[#262626] bg-[#160d0dc0] shadow-xl text-yellow-400 px-6 border-none rounded-xl py-2 mt-4">LogOut</button>
-                            </Link> </div> 
-                            : 
+                                <button onClick={handleLogOut} className="btn hover:bg-yellow-400 text-lg hover:text-[#262626] bg-[#160d0dc0] shadow-xl text-yellow-400 px-6 border-none rounded-xl py-2 ">LogOut</button>
+                            </Link> </div>
+                            :
                             <div> <Link to='/login'>
-                                <button className="btn mr-4 hover:bg-yellow-400 text-lg hover:text-[#262626] bg-[#160d0dc0] shadow-xl text-yellow-400 px-6 border-none rounded-xl py-2 mt-4">Login</button>
+                                <button className="btn mr-4 hover:bg-yellow-400 text-lg hover:text-[#262626] bg-[#160d0dc0] shadow-xl text-yellow-400 px-6 border-none rounded-xl py-2 ">Login</button>
                             </Link>
 
-                            <Link to='/register'>
-                                <button className="btn hover:bg-yellow-400 text-lg hover:text-[#262626] bg-[#160d0dc0] shadow-xl text-yellow-400 px-6 border-none rounded-xl py-2 mt-4">Register</button>
-                            </Link>
+                                <Link to='/register'>
+                                    <button className="btn hover:bg-yellow-400 text-lg hover:text-[#262626] bg-[#160d0dc0] shadow-xl text-yellow-400 px-6 border-none rounded-xl py-2 ">Register</button>
+                                </Link>
 
-                        </div>
+                            </div>
                     }
 
                 </div>
